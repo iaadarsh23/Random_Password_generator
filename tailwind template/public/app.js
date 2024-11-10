@@ -5,19 +5,35 @@ const upperCase= document.getElementById('uppercase');
 const lowerCase= document.getElementById('lowercase');
 const Number= document.getElementById('numbers');
 const symbol= document.getElementById('symbols');
-
 const passSlider= document.getElementById('slider');
 const colorIndicator= document.getElementById('indicator')
+const copymsg= document.getElementById('copy-msg');
 const generateBtn= document.getElementById('gen-pass');
+const allCheckbox= document.querySelectorAll("input[type=checkbox]")
 
 
-function genPass(){
+let password='';
+let passwordLength=10;
+
+handleSlider()
+
+//slider function
+function handleSlider(){
+    passSlider.value= passwordLength;
+    showLen.innerText=passwordLength;
+
+
 
 }
-genPass();
+
+
+
+
+
+
 
 // getting uppercase letter
-function randomUppercase(){
+function getrandomUppercase(){
     const letters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let result='';
     for(let i=0;i<letters.length;i++){
@@ -26,11 +42,12 @@ function randomUppercase(){
     }
     console.log(result);
 }
-randomUppercase(5);
+getrandomUppercase(5);
+
 
 
 //getting lowercase letter
-function randomLowerCase(){
+function getrandomLowerCase(){
     const lowerletters='abcdefghijklmnopqrstuvwxyz';
     let lowerResult='';
     for(let i=0;i<lowerletters.length;i++){
@@ -39,12 +56,14 @@ function randomLowerCase(){
     } 
     console.log(lowerResult);
 }
-randomLowerCase();
+getrandomLowerCase();
+
+
 
 
 //getting random numbers
-function randomNum(max){
+function getrandomNum(max){
     let getNum= Math.floor(Math.random()*max);
     console.log(getNum)
 }
- randomNum(100);
+ getrandomNum(100);
