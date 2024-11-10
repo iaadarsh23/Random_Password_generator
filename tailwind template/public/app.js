@@ -17,13 +17,20 @@ let passwordLength=10;
 
 handleSlider()
 
-//slider function
+//1.slider function
 function handleSlider(){
     passSlider.value= passwordLength;
     showLen.innerText=passwordLength;
+}
 
+//2.setting the indicator
 
+function setIndicator(color){
+    //changing the color of indicator;
+    colorIndicator.style.backgroundColor= color;
 
+    //changing the shadow of indicator
+    colorIndicator.style.boxShadow=color;
 }
 
 
@@ -32,38 +39,48 @@ function handleSlider(){
 
 
 
-// getting uppercase letter
-function getrandomUppercase(){
-    const letters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let result='';
-    for(let i=0;i<letters.length;i++){
-        let randomIndex= Math.floor(Math.random() *letters.length)
-        result+= letters[randomIndex];
-    }
-    console.log(result);
+// // getting uppercase letter
+// function getrandomUppercase(){
+//     const letters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//     let result='';
+//     for(let i=0;i<letters.length;i++){
+//         let randomIndex= Math.floor(Math.random() *letters.length)
+//         result+= letters[randomIndex];
+//     }
+//     console.log(result);
+// }
+// getrandomUppercase(5);
+
+
+
+// //getting lowercase letter
+// function getrandomLowerCase(){
+//     const lowerletters='abcdefghijklmnopqrstuvwxyz';
+//     let lowerResult='';
+//     for(let i=0;i<lowerletters.length;i++){
+//         let index= Math.floor(Math.random()*lowerletters.length);
+//         lowerResult+=lowerletters[index];
+//     } 
+//     console.log(lowerResult);
+// }
+// getrandomLowerCase();
+
+
+
+
+// //getting random numbers
+// function getrandomNum(min,max){
+//     let getNum= Math.floor(Math.random()*max);
+//     console.log(getNum)
+// }
+//  getrandomNum(1,100);
+
+
+
+//getinradomInteger
+
+function getRandomInteger(max, min){
+    let integer= Math.floor(Math.random()*(max-min))+min;
+    console.log(integer)
 }
-getrandomUppercase(5);
-
-
-
-//getting lowercase letter
-function getrandomLowerCase(){
-    const lowerletters='abcdefghijklmnopqrstuvwxyz';
-    let lowerResult='';
-    for(let i=0;i<lowerletters.length;i++){
-        let index= Math.floor(Math.random()*lowerletters.length);
-        lowerResult+=lowerletters[index];
-    } 
-    console.log(lowerResult);
-}
-getrandomLowerCase();
-
-
-
-
-//getting random numbers
-function getrandomNum(max){
-    let getNum= Math.floor(Math.random()*max);
-    console.log(getNum)
-}
- getrandomNum(100);
+getRandomInteger(100,3);
