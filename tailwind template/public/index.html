@@ -1,25 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random password Generator</title>
+    <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <nav>
             <div id="logo">
-                <img src="/images/Screenshot 2024-11-10 153523.png" alt="">
+                <!-- Site logo -->
+                <img src="/images/Screenshot 2024-11-10 153523.png" alt="Random Password Generator logo">
             </div>
             <div id="contact">
-                <button>
-                    <a href="https://x.com/adarshtrip2306">Contact Us</a>
-                </button>
+                <!-- Contact button -->
+                <a href="https://x.com/adarshtrip2306" class="button">Contact Us</a>
             </div>
         </nav>
     </header>
 
-   
+    <!-- Main section for password generator -->
+    <main>
+        <section id="password-generator">
+            <!-- Wrapper div for generator content -->
+            <div class="generator-wrapper">
+
+                <!-- Left side images for password strength -->
+                <div id="left-side-container">
+                    <img src="/images/hut.png" id="weak" alt="Weak Password Indicator">
+                    <img src="/images/bungalow.png" id="medium" alt="Medium Password Indicator">
+                    <img src="/images/castle.png" id="strong" alt="Strong Password Indicator">
+                </div>
+
+                <!-- Right side container with form and buttons -->
+                <div id="right-side-container">
+                    <h2>Generate Your Password Here</h2>
+
+                    <!-- Output display for password -->
+                    <div>
+                        <input type="text" id="password-output" readonly placeholder="Your Password">
+                        <!-- Copy button -->
+                        <button id="copy-btn" aria-label="Copy Password">
+                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon">
+                        </button>
+                    </div>
+
+                    <!-- Password settings -->
+                    <div>
+                        <h1>Password length</h1>
+                        <p id="pswd-len">12</p> <!-- Example, will be dynamically updated -->
+                    </div>
+
+                    <!-- Checkbox options with unique IDs and labels -->
+                    <div class="checkbox-options">
+                        <label class="checkbox-btn" for="uppercase">
+                            <input type="checkbox" id="uppercase">
+                            <span class="btn-text">Include Uppercase</span>
+                        </label>
+                        <label class="checkbox-btn" for="lowercase">
+                            <input type="checkbox" id="lowercase">
+                            <span class="btn-text">Include Lowercase</span>
+                        </label>
+                        <label class="checkbox-btn" for="numbers">
+                            <input type="checkbox" id="numbers">
+                            <span class="btn-text">Include Numbers</span>
+                        </label>
+                        <label class="checkbox-btn" for="symbols">
+                            <input type="checkbox" id="symbols">
+                            <span class="btn-text">Include Symbols</span>
+                        </label>
+                    </div>
+
+                    <!-- Generate password button -->
+                    <div>
+                        <button id="gen-pass" aria-label="Generate Password">Generate Password</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
