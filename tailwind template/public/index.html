@@ -30,14 +30,14 @@
             <div class="generator-wrapper">
 
                 <!-- Left side images for password strength -->
-                <div id="left-side-container">
+                <div id="left-container">
                     <img src="/images/hut.png" id="weak" alt="Weak Password Indicator">
                     <img src="/images/bungalow.png" id="medium" alt="Medium Password Indicator">
                     <img src="/images/castle.png" id="strong" alt="Strong Password Indicator">
                 </div>
 
                 <!-- Right side container with form and buttons -->
-                <div id="right-side-container">
+                <div id="right-container">
                     <h2>Generate Your Password Here</h2>
 
                     <!-- Output display for password -->
@@ -52,10 +52,10 @@
                     <!-- Password settings -->
                     <div>
                         <h1>Password length</h1>
-                        <p id="pswd-len">12</p> <!-- Example, will be dynamically updated -->
+                        <p id="pswd-len">0</p> <!-- Example, will be dynamically updated -->
                     </div>
 
-                    <!-- Checkbox options with unique IDs and labels -->
+                    <!-- Checkbox options -->
                     <div class="checkbox-options">
                         <label class="checkbox-btn" for="uppercase">
                             <input type="checkbox" id="uppercase">
@@ -85,5 +85,5 @@
         </section>
     </main>
 </body>
-
+<script src="app.js"></script>
 </html>
