@@ -45,42 +45,60 @@
                         <input type="text" id="password-output" readonly placeholder="Your Password">
                         <!-- Copy button -->
                         <button id="copy-btn" aria-label="Copy Password">
-                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon">
+                            <span id="copy-msg">copied</span>
+                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon" width="23" height="23">
                         </button>
                     </div>
 
-                    <!-- Password settings -->
+                    <!-- input container -->
                     <div>
-                        <h1>Password length</h1>
-                        <p id="pswd-len">0</p> <!-- Example, will be dynamically updated -->
-                    </div>
 
-                    <!-- Checkbox options -->
-                    <div class="checkbox-options">
-                        <label class="checkbox-btn" for="uppercase">
-                            <input type="checkbox" id="uppercase">
-                            <span class="btn-text">Include Uppercase</span>
-                        </label>
-                        <label class="checkbox-btn" for="lowercase">
-                            <input type="checkbox" id="lowercase">
-                            <span class="btn-text">Include Lowercase</span>
-                        </label>
-                        <label class="checkbox-btn" for="numbers">
-                            <input type="checkbox" id="numbers">
-                            <span class="btn-text">Include Numbers</span>
-                        </label>
-                        <label class="checkbox-btn" for="symbols">
-                            <input type="checkbox" id="symbols">
-                            <span class="btn-text">Include Symbols</span>
-                        </label>
-                    </div>
+                            <!-- Password settings -->
+                        <div>
+                            <h1>Password length</h1>
+                            <p id="pswd-len">0</p> <!-- Example, will be dynamically updated -->
+                        </div>
 
-                    <!-- Generate password button -->
-                    <div>
-                        <button id="gen-pass" aria-label="Generate Password">Generate Password</button>
+                        <!-- slider -->
+
+                        <input type="range" min="1" max="20" step="1" id="slider">
+
+                        <!-- Checkbox options -->
+                        <div class="checkbox-options ">
+                            <label class="checkbox-btn" for="uppercase">
+                                <input type="checkbox" id="uppercase">
+                                <span class="btn-text">Include Uppercase</span>
+                            </label>
+                            <label class="checkbox-btn" for="lowercase">
+                                <input type="checkbox" id="lowercase">
+                                <span class="btn-text">Include Lowercase</span>
+                            </label>
+                            <label class="checkbox-btn" for="numbers">
+                                <input type="checkbox" id="numbers">
+                                <span class="btn-text">Include Numbers</span>
+                            </label>
+                            <label class="checkbox-btn" for="symbols">
+                                <input type="checkbox" id="symbols">
+                                <span class="btn-text">Include Symbols</span>
+                            </label>
+                        </div>
+
+                        <!-- show strength -->
+                         <div>
+                            <p>Strength</p>
+                            <div id="indicator"></div>
+                         </div>
+
+
+                        <!-- Generate password button -->
+                        <div>
+                            <button id="gen-pass" aria-label="Generate Password">Generate Password</button>
+                        </div>
+
                     </div>
 
                 </div>
+                    
             </div>
         </section>
     </main>
