@@ -14,7 +14,7 @@ const allCheckbox= document.querySelectorAll("input[type=checkbox]")
 
 let password='';
 let passwordLength=10;
-
+let Specialsymbols='!@#$%^&*()_-+=}{][\|;:.,/?><~';
 handleSlider()
 
 //1.slider function
@@ -33,54 +33,38 @@ function setIndicator(color){
     colorIndicator.style.boxShadow=color;
 }
 
-
-
-
-
-
-
-// // getting uppercase letter
-// function getrandomUppercase(){
-//     const letters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-//     let result='';
-//     for(let i=0;i<letters.length;i++){
-//         let randomIndex= Math.floor(Math.random() *letters.length)
-//         result+= letters[randomIndex];
-//     }
-//     console.log(result);
-// }
-// getrandomUppercase(5);
-
-
-
-// //getting lowercase letter
-// function getrandomLowerCase(){
-//     const lowerletters='abcdefghijklmnopqrstuvwxyz';
-//     let lowerResult='';
-//     for(let i=0;i<lowerletters.length;i++){
-//         let index= Math.floor(Math.random()*lowerletters.length);
-//         lowerResult+=lowerletters[index];
-//     } 
-//     console.log(lowerResult);
-// }
-// getrandomLowerCase();
-
-
-
-
-// //getting random numbers
-// function getrandomNum(min,max){
-//     let getNum= Math.floor(Math.random()*max);
-//     console.log(getNum)
-// }
-//  getrandomNum(1,100);
-
-
-
 //getinradomInteger
 
 function getRandomInteger(max, min){
-    let integer= Math.floor(Math.random()*(max-min))+min;
-    console.log(integer)
+    return Math.floor(Math.random()*(max-min))+min;
+    
 }
-getRandomInteger(100,3);
+
+//getting random number
+
+function getrandomNum(){
+    //we only want to get the number from 0-9
+    return getRandomInteger(0,9);
+}
+
+//getting randomUppercase letter
+
+function getrandomUppercase(){
+    //this method will convert random integer to character and the number are ascii value of capital letters
+    return String.fromCharCode(getRandomInteger(65,91))
+}
+
+//getting randomlowercase letter
+function getrandomlowercase(){
+    return String.fromCharCode(getRandomInteger(97,123))
+}
+
+//getting randomSymbols
+
+function getRanSymbols(){
+    const randNum= getRandomInteger(0,Specialsymbols.length);
+    return Specialsymbols.charAt[randNum];
+}
+getRanSymbols()
+
+
