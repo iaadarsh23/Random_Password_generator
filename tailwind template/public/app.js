@@ -14,8 +14,8 @@ const allCheckbox= document.querySelectorAll("input[type=checkbox]")
 
 let password='';
 let passwordLength=10;
-let Specialsymbols='!@#$%^&*()_-+=}{][\|;:.,/?><~';
-let checkCount=1;
+let Specialsymbol='!@#$%^&*()_-+=}{][\|;:.,/?><~';
+let checkCount=0;
 handleSlider()
 
 //1.slider function
@@ -24,9 +24,6 @@ handleSlider()
 function handleSlider(){
     passSlider.value= passwordLength;
     showLen.innerText=passwordLength;
-  
-    
-
 }
 
 //2.setting the indicator
@@ -143,8 +140,6 @@ async function copyContent() {
     }
   });
 
-
-
   //13.making a checkbox checked default
 
 function handleCheckBoxes(){
@@ -163,9 +158,36 @@ function handleCheckBoxes(){
 
 allCheckbox.addEventListener('change', handleCheckBoxes);
 
-
   //14.main generate password
   generateBtn.addEventListener('click',()=>{
-    
+    if(checkCount<=0)
+        return;
+
+    if(passwordLength<checkCount){
+        passwordLength=checkCount;
+    }
+
+    //lets put the main selection stuff
+
+    let funArr=[];
+
+    if(upperCase.checked){
+        funArr.push(getrandomUppercase);
+    }
+    if(lowerCaserCase.checked){
+        funArr.push(getrandomlowercase);
+    }
+    if(number.checked){
+        funArr.push(getrandomNum);
+    }
+    if(Specialsymbol.checked){
+        funArr.push(getRanSymbols);
+    }
+
+    //compulsory condition
+    for(let i=0; i<funArr.length;i++){
+        password+=funArr[i]
+    }
 
   })
+
