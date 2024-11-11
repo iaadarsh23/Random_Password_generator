@@ -21,6 +21,9 @@ handleSlider()
 function handleSlider(){
     passSlider.value= passwordLength;
     showLen.innerText=passwordLength;
+  
+    
+
 }
 
 //2.setting the indicator
@@ -33,33 +36,33 @@ function setIndicator(color){
     colorIndicator.style.boxShadow=color;
 }
 
-//getinradomInteger
+//3.getinradomInteger
 
 function getRandomInteger(max, min){
     return Math.floor(Math.random()*(max-min))+min;
     
 }
 
-//getting random number
+//4.getting random number
 
 function getrandomNum(){
     //we only want to get the number from 0-9
     return getRandomInteger(0,9);
 }
 
-//getting randomUppercase letter
+//5.getting randomUppercase letter
 
 function getrandomUppercase(){
     //this method will convert random integer to character and the number are ascii value of capital letters
     return String.fromCharCode(getRandomInteger(65,91))
 }
 
-//getting randomlowercase letter
+//6.getting randomlowercase letter
 function getrandomlowercase(){
     return String.fromCharCode(getRandomInteger(97,123))
 }
 
-//getting randomSymbols
+//7.getting randomSymbols
 
 function getRanSymbols(){
     const randNum= getRandomInteger(0,Specialsymbols.length);
@@ -67,7 +70,7 @@ function getRanSymbols(){
 }
 getRanSymbols()
 
-//color change
+//8.color change
 
 function colorChange(){
     let hasUpper = upperCase.checked;
@@ -94,3 +97,37 @@ function colorChange(){
         document.getElementById('weak').classList.remove('hidden');
     }
 }
+
+// 10.copy content to clipboard
+
+async function copyContent() {
+    //this is an api used to copy something on clipboard, it will return promise
+    //jo bhi outputtab pr show hoga vo sab dikhega
+    const response= await navigator.clipboard.writeText(outputTab.value);
+     
+    try {
+        if(!response.ok){
+            throw new Error('api couldnt get fetched');
+        }
+        copymsg.innerText='Copied';
+    } catch (e) {
+        copymsg.innerText='failed';
+        
+    }
+    // to make copy span visible
+    //this makes any css made in copybtn visible for sometimes
+    copymsg.classList.add('active');
+
+    //to make copt span hide
+    setTimeout(()=>{
+        copymsg.classList.remove('active');
+    },2000);
+
+}
+
+  //11. well add a event listener to handle the slider moving then the length of password will be changed
+
+  passSlider.addEventListener("input", (e)=>{
+    passwordLength= e.target.value;
+    handleSlider(); 
+  })
