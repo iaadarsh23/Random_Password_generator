@@ -15,9 +15,12 @@ const allCheckbox= document.querySelectorAll("input[type=checkbox]")
 let password='';
 let passwordLength=10;
 let Specialsymbols='!@#$%^&*()_-+=}{][\|;:.,/?><~';
+let checkCount=1;
 handleSlider()
 
 //1.slider function
+//iska kaam itna hai bs ye password ko ui pr reflect krvata hai bs
+
 function handleSlider(){
     passSlider.value= passwordLength;
     showLen.innerText=passwordLength;
@@ -72,7 +75,7 @@ getRanSymbols()
 
 //8.color change
 
-function colorChange(){
+function calStrength(){
     let hasUpper = upperCase.checked;
     let hasLower = lowerCase.checked;
     let hasNumber = number.checked;
@@ -130,4 +133,18 @@ async function copyContent() {
   passSlider.addEventListener("input", (e)=>{
     passwordLength= e.target.value;
     handleSlider(); 
+  })
+
+  //12.password copy
+
+  copyBtn.addEventListener(('click'),()=>{
+    if(outputTab.value){
+        copyContent();
+    }
+  });
+
+  //13.main generate password
+
+  generateBtn.addEventListener(('click'),()=>{
+
   })
