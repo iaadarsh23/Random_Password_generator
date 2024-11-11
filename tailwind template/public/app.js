@@ -189,5 +189,31 @@ allCheckbox.addEventListener('change', handleCheckBoxes);
         password+=funArr[i]
     }
 
+    //remaining condition
+    for(let i=0;i<passwordLength-funArr.length;i++){
+        let rndIndex= getRandomInteger(0,funArr.length);
+        password+=funArr[rndIndex]()
+    }
+
+
+    //shuffle the password
+    password= shuffulePassword(Array.from(password));
+
+    //show in UI
+    outputTab.value=password;
+
+    //calculating the strength
+    calStrength();
   })
 
+  //shuffle password algo -
+  //Fisher Yates Method
+
+// Shuffle password using Fisher-Yates
+function shufflePassword(passwordArray) {
+    for (let i = passwordArray.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [passwordArray[i], passwordArray[randomIndex]] = [passwordArray[randomIndex], passwordArray[i]];
+    }
+    return passwordArray.join('');
+}
