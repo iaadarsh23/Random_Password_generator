@@ -143,8 +143,29 @@ async function copyContent() {
     }
   });
 
-  //13.main generate password
 
-  generateBtn.addEventListener(('click'),()=>{
+
+  //13.making a checkbox checked default
+
+function handleCheckBoxes(){
+    checkCount=0;
+    allCheckbox.forEach((checkbox)=>{
+        if(checkbox.checked)
+            checkCount++
+    })
+    //special condition
+
+    if(passwordLength<checkCount){
+        passwordLength=checkCount;
+        handleSlider();
+    }
+}
+
+allCheckbox.addEventListener('change', handleCheckBoxes);
+
+
+  //14.main generate password
+  generateBtn.addEventListener('click',()=>{
+    
 
   })
