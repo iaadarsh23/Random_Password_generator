@@ -3,7 +3,7 @@ const copyBtn= document.getElementById('copy-btn');
 const showLen= document.getElementById('pswd-len');
 const upperCase= document.getElementById('uppercase');
 const lowerCase= document.getElementById('lowercase');
-const Number= document.getElementById('numbers');
+const number= document.getElementById('numbers');
 const symbol= document.getElementById('symbols');
 const passSlider= document.getElementById('slider');
 const colorIndicator= document.getElementById('indicator')
@@ -67,4 +67,30 @@ function getRanSymbols(){
 }
 getRanSymbols()
 
+//color change
 
+function colorChange(){
+    let hasUpper = upperCase.checked;
+    let hasLower = lowerCase.checked;
+    let hasNumber = number.checked;
+    let hasSymbol = symbol.checked;
+
+    // Reset all indicators
+    document.getElementById('strong').classList.add('hidden');
+    document.getElementById('medium').classList.add('hidden');
+    document.getElementById('weak').classList.add('hidden');
+
+    // Determine and show the correct indicator
+    if (hasUpper && hasLower && (hasSymbol || hasNumber) && passwordLength >= 8) {
+        setIndicator('#008000'); // Strong
+        document.getElementById('strong').classList.remove('hidden');
+    } 
+    else if ((hasLower || hasUpper) && (hasNumber || hasSymbol) && passwordLength >= 6) {
+        setIndicator("#ffb343"); // Medium
+        document.getElementById('medium').classList.remove('hidden');
+    } 
+    else {
+        setIndicator("#ff2c2c"); // Weak
+        document.getElementById('weak').classList.remove('hidden');
+    }
+}
