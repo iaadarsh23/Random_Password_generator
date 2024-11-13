@@ -88,13 +88,14 @@ function calStrength(){
         setIndicator('#008000'); // Strong
         document.getElementById('strong').classList.remove('hidden');
        
-        msg1.innerText="Now, This is called a real Password"; 
+        msg1.innerText="Congrats! You’ve built a fortress, \n and not even an army of hackers is \n getting through this bad boy."; 
     } 
     else if ((hasLower || hasUpper) && (hasNumber || hasSymbol) && passwordLength >= 6) {
         setIndicator("#ffb343"); // Medium
         document.getElementById('medium').classList.remove('hidden');
         
-        msg1.innerText="Try harder..."
+        msg1.innerText = "This house has 'break-in' vibes.\n Add some locks before the \n skeletons move in.";
+
     } 
     else {
         setIndicator("#ff2c2c"); // Weak
