@@ -1,96 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-        <nav class="w-full h-[150px] flex justify-between items-center px-4">
-            <div id="logo" class="flex-shrink-0">
-                <!-- Site logo -->
-                <img src="/images/Screenshot 2024-11-10 153523.png" alt="Random Password Generator logo" class="w-[100px] h-auto">
-            </div>
-            <div id="contact" class="flex-shrink-0">
-                <!-- Contact button -->
-                <a href="https://x.com/adarshtrip2306" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Contact Us</a>
-            </div>
-        </nav>
-    </header>
+    <nav class="w-full h-[150px] flex justify-between items-center px-4">
+        <div id="logo" class="flex-shrink-0">
+            <!-- Site logo -->
+            <img src="/images/Screenshot 2024-11-10 153523.png" alt="Random Password Generator logo" class="w-[100px] h-auto">
+        </div>
+        <div id="contact" class="flex-shrink-0">
+            <!-- Contact button -->
+            <a href="https://x.com/adarshtrip2306" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Contact Us</a>
+        </div>
+    </nav>
+</header>
+
+    
+    
+
 
     <!-- Main section for password generator -->
-    <main class="mt-[150px]"> <!-- Added margin-top to avoid overlap with fixed header -->
+    <main>
         <section id="password-generator">
             <!-- Wrapper div for generator content -->
-            <div class="generator-wrapper flex flex-col lg:flex-row">
+            <div class="generator-wrapper">
 
                 <!-- Left side images for password strength -->
-                <div id="left-container" class="lg:w-1/2">
+                <div id="left-container">
                     <img src="/images/hut.png" id="weak" alt="Weak Password Indicator" hidden>
                     <img src="/images/bungalow.png" id="medium" alt="Medium Password Indicator" hidden>
                     <img src="/images/castle.png" id="strong" alt="Strong Password Indicator" hidden>
                 </div>
 
                 <!-- Right side container with form and buttons -->
-                <div id="right-container" class="lg:w-1/2">
+                <div id="right-container">
                     <h2>Generate Your Password Here</h2>
 
                     <!-- Output display for password -->
-                    <div class="flex items-center">
-                        <input type="text" id="password-output" readonly placeholder="Your Password" class="flex-grow">
+                    <div>
+                        <input type="text" id="password-output" readonly placeholder="Your Password">
                         <!-- Copy button -->
-                        <button id="copy-btn" aria-label="Copy Password" class="ml-2">
+                        <button id="copy-btn" aria-label="Copy Password">
                             <span id="copy-msg">copied</span>
-                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon" width="23" height="23">
+                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon" width="23" height="23" >
                         </button>
                     </div>
 
-                    <!-- Input container -->
-                    <div class="flex flex-col mt-4">
-                        <!-- Password settings -->
-                        <div class="flex items-center justify-between">
-                            <h1 class="text-lg font-semibold">Password length</h1>
+                    <!-- input container -->
+                    <div>
+
+                            <!-- Password settings -->
+                        <div>
+                            <h1>Password length</h1>
                             <p id="pswd-len">0</p> <!-- Example, will be dynamically updated -->
                         </div>
 
-                        <!-- Slider -->
-                        <input type="range" min="1" max="20" step="1" id="slider" class="mt-2">
+                        <!-- slider -->
+
+                        <input type="range" min="1" max="20" step="1" id="slider">
 
                         <!-- Checkbox options -->
-                        <div class="checkbox-options mt-4 space-y-2">
-                            <label class="checkbox-btn flex items-center" for="uppercase">
+                        <div class="checkbox-options ">
+                            <label class="checkbox-btn" for="uppercase">
                                 <input type="checkbox" id="uppercase">
-                                <span class="ml-2">Include Uppercase</span>
+                                <span class="btn-text">Include Uppercase</span>
                             </label>
-                            <label class="checkbox-btn flex items-center" for="lowercase">
+                            <label class="checkbox-btn" for="lowercase">
                                 <input type="checkbox" id="lowercase">
-                                <span class="ml-2">Include Lowercase</span>
+                                <span class="btn-text">Include Lowercase</span>
                             </label>
-                            <label class="checkbox-btn flex items-center" for="numbers">
+                            <label class="checkbox-btn" for="numbers">
                                 <input type="checkbox" id="numbers">
-                                <span class="ml-2">Include Numbers</span>
+                                <span class="btn-text">Include Numbers</span>
                             </label>
-                            <label class="checkbox-btn flex items-center" for="symbols">
+                            <label class="checkbox-btn" for="symbols">
                                 <input type="checkbox" id="symbols">
-                                <span class="ml-2">Include Symbols</span>
+                                <span class="btn-text">Include Symbols</span>
                             </label>
                         </div>
 
-                        <!-- Show strength -->
-                        <div class="mt-4">
-                            <p class="text-lg font-semibold">Strength</p>
+                        <!-- show strength -->
+                         <div>
+                            <p>Strength</p>
                             <div id="indicator"></div>
-                        </div>
+                         </div>
+
 
                         <!-- Generate password button -->
-                        <div class="mt-4">
-                            <button id="gen-pass" aria-label="Generate Password" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Generate Password</button>
+                        <div>
+                            <button id="gen-pass" aria-label="Generate Password">Generate Password</button>
                         </div>
 
                     </div>
+
                 </div>
                     
             </div>
@@ -99,4 +110,3 @@
 </body>
 <script src="app.js"></script>
 </html>
-    
