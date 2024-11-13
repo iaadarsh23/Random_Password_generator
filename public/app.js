@@ -209,6 +209,7 @@ allCheckbox.forEach((checkbox) => {
 
     // 5. Calculate the strength of the password
     calStrength();
+    document.getElementById('text').style.marginTop='8%';  
 });
 
 
