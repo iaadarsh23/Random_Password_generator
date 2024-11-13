@@ -38,7 +38,7 @@ function setIndicator(color){
 
 //3.getinradomInteger
 
-function getRandomInteger(max, min){
+function getRandomInteger(min, max){
     return Math.floor(Math.random()*(max-min))+min;
     
 }
@@ -65,8 +65,8 @@ function getrandomlowercase(){
 //7.getting randomSymbols
 
 function getRanSymbols(){
-    const randNum= getRandomInteger(0,Specialsymbols.length);
-    return Specialsymbols.charAt[randNum];
+    const randNum= getRandomInteger(0,Specialsymbol.length);
+    return Specialsymbol.charAt(randNum);
 }
 getRanSymbols()
 
@@ -156,55 +156,61 @@ function handleCheckBoxes(){
     }
 }
 
-allCheckbox.addEventListener('change', handleCheckBoxes);
+allCheckbox.forEach((checkbox) => {
+    checkbox.addEventListener('change', handleCheckBoxes);
+});
+
 
   //14.main generate password
-  generateBtn.addEventListener('click',()=>{
-    if(checkCount<=0)
-        return;
+  generateBtn.addEventListener('click', () => {
+    // Clear previous password
+    password = "";
 
-    if(passwordLength<checkCount){
-        passwordLength=checkCount;
+    if (checkCount <= 0) return;
+
+    // Adjust passwordLength to be at least as long as the number of selected types
+    if (passwordLength < checkCount) {
+        passwordLength = checkCount;
+        handleSlider();
     }
 
-    //lets put the main selection stuff
+    // Initialize an array of functions based on selected options
+    let funArr = [];
 
-    let funArr=[];
-
-    if(upperCase.checked){
+    if (upperCase.checked) {
         funArr.push(getrandomUppercase);
     }
-    if(lowerCaserCase.checked){
+    if (lowerCase.checked) {
         funArr.push(getrandomlowercase);
     }
-    if(number.checked){
+    if (number.checked) {
         funArr.push(getrandomNum);
     }
-    if(Specialsymbol.checked){
+    if (symbol.checked) {
         funArr.push(getRanSymbols);
     }
 
-    //compulsory condition
-    for(let i=0; i<funArr.length;i++){
-        password+=funArr[i]
+    // 1. Add one character for each selected type to satisfy the compulsory condition
+    for (let i = 0; i < funArr.length; i++) {
+        password += funArr[i]();
     }
 
-    //remaining condition
-    for(let i=0;i<passwordLength-funArr.length;i++){
-        let rndIndex= getRandomInteger(0,funArr.length);
-        password+=funArr[rndIndex]()
+    // 2. Calculate the remaining length to reach `passwordLength`
+    for (let i = 0; i < passwordLength - funArr.length; i++) {
+        let rndIndex = getRandomInteger(0, funArr.length);
+        password += funArr[rndIndex]();
     }
 
+    // 3. Shuffle the password
+    password = shufflePassword(Array.from(password));
 
-    //shuffle the password
-    password= shuffulePassword(Array.from(password));
+    // 4. Show password in the UI
+    outputTab.value = password;
 
-    //show in UI
-    outputTab.value=password;
-
-    //calculating the strength
+    // 5. Calculate the strength of the password
     calStrength();
-  })
+});
+
 
   //shuffle password algo -
   //Fisher Yates Method
