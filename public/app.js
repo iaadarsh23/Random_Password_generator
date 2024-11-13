@@ -10,7 +10,7 @@ const colorIndicator= document.getElementById('indicator')
 const copymsg= document.getElementById('copy-msg');
 const generateBtn= document.getElementById('gen-pass');
 const allCheckbox= document.querySelectorAll("input[type=checkbox]")
-
+const msg1= document.getElementById('text2');
 
 let password='';
 let passwordLength=10;
@@ -87,10 +87,14 @@ function calStrength(){
     if (hasUpper && hasLower && (hasSymbol || hasNumber) && passwordLength >= 8) {
         setIndicator('#008000'); // Strong
         document.getElementById('strong').classList.remove('hidden');
+       
+        msg1.innerText="Now, This is called a real Password"; 
     } 
     else if ((hasLower || hasUpper) && (hasNumber || hasSymbol) && passwordLength >= 6) {
         setIndicator("#ffb343"); // Medium
         document.getElementById('medium').classList.remove('hidden');
+        
+        msg1.innerText="Try harder..."
     } 
     else {
         setIndicator("#ff2c2c"); // Weak
@@ -209,7 +213,8 @@ allCheckbox.forEach((checkbox) => {
 
     // 5. Calculate the strength of the password
     calStrength();
-    document.getElementById('text').style.marginTop='8%';  
+    document.getElementById('text').style.marginTop='8%';
+    document.getElementById('text2').classList.remove('hidden');  
 });
 
 
