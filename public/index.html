@@ -10,6 +10,7 @@
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
+
 <body>
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
     <nav class="flex justify-between w-full h-full p-5">
@@ -55,69 +56,83 @@
                 </div>
             
             
+                  <!-- Right Container -->
+                  <div class="min-h-screen flex items-center justify-center p-4 relative rounded-xl ">
 
-                <!-- Right side container with form and buttons -->
-                <div id="right-container " class="flex-shrink-1">
-                    <h2>Generate Your Password Here</h2>
+                    <!-- Output Display with Animated Border -->
+                    <div class="relative mb-6 flex items-center overflow-hidden rounded-xl p-[1.5px] border border-gray-300 shadow-2xl drop-shadow-2xl">
+                      <!-- Animated Border Layer -->
+                      <div class="animate-rotate absolute inset-0 h-full w-full rounded-2xl bg-[conic-gradient(#7c3aed_20deg,transparent_150deg)]"></div>
 
-                    <!-- Output display for password -->
-                    <div>
-                        <input type="text" id="password-output" readonly placeholder="Your Password">
-                        <!-- Copy button -->
-                        <button id="copy-btn" aria-label="Copy Password">
-                            <span id="copy-msg">copied</span>
-                            <img src="/images/copy-two-paper-sheets-interface-symbol.png" alt="Copy Icon" width="23" height="23" >
-                        </button>
+
+                      <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md h-auto relative z-50">
+                        <h2 class="text-3xl font-bold text-center mb-6 text-gray-800 animate-pulse">Generate Your Password</h2>
+
+                        <!-- Output Display with Animated Border -->
+                        <div class="relative mb-6 flex items-center overflow-hidden rounded-lg p-[1.5px] border border-gray-300">
+                          <!-- Animated Border Layer -->
+                          <div class="animate-rotate absolute inset-0 h-full w-full rounded-lg bg-[conic-gradient(#7c3aed_20deg,transparent_120deg)]"></div>
+
+                          <!-- Inner Password Output Container -->
+                          <div class="relative z-20 w-full">
+                            <input type="text" id="password-output" readonly placeholder="Your Password" class="w-full py-3 px-4 bg-gray-100 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-600 font-semibold font-sans text-xl" />
+                            
+                            <!-- Copy Button -->
+                            <button id="copy-btn" aria-label="Copy Password" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-500 focus:outline-none">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2z" />
+                              </svg>
+                            </button>
+
+                            <!-- Copy Message -->
+                            <span id="copy-msg" class="absolute left-2 -bottom-6 text-sm text-green-500 opacity-0 transition-opacity">Copied!</span>
+                          </div>
+                        </div>
+                    
+              
+
+                      <!-- Password cobimation selection  -->
+                      <div class="mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                          <h3 class="text-lg font-semibold text-gray-700">Password length</h3>
+                          <p id="pswd-len" class="text-2xl font-bold text-purple-600">0</p>
+                        </div>
+                        <input type="range" min="1" max="20" step="1" id="slider" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer bg-red-300 ">
+                      </div>
+                  
+
+                      <!-- checkboxes -->
+                      <div class="space-y-4 mb-6">
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                          <input type="checkbox" id="uppercase" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                          <span class="text-gray-700">Include Uppercase</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                          <input type="checkbox" id="lowercase" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                          <span class="text-gray-700">Include Lowercase</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                          <input type="checkbox" id="numbers" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                          <span class="text-gray-700">Include Numbers</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer">
+                          <input type="checkbox" id="symbols" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
+                          <span class="text-gray-700">Include Symbols</span>
+                        </label>
+                      </div>
+                  
+                      <div class="mb-6">
+                        <p class="text-lg font-semibold text-gray-700 mb-2">Strength</p>
+                        <div id="indicator" class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                          <div class="h-full bg-green-500 transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                      </div>
+                  
+                      <button id="gen-pass" aria-label="Generate Password" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Generate Password
+                      </button>
                     </div>
-
-                    <!-- input container -->
-                    <div>
-
-                            <!-- Password settings -->
-                        <div>
-                            <h1>Password length</h1>
-                            <p id="pswd-len">0</p> <!-- Example, will be dynamically updated -->
-                        </div>
-
-                        <!-- slider -->
-
-                        <input type="range" min="1" max="20" step="1" id="slider">
-
-                        <!-- Checkbox options -->
-                        <div class="checkbox-options ">
-                            <label class="checkbox-btn" for="uppercase">
-                                <input type="checkbox" id="uppercase">
-                                <span class="btn-text">Include Uppercase</span>
-                            </label>
-                            <label class="checkbox-btn" for="lowercase">
-                                <input type="checkbox" id="lowercase">
-                                <span class="btn-text">Include Lowercase</span>
-                            </label>
-                            <label class="checkbox-btn" for="numbers">
-                                <input type="checkbox" id="numbers">
-                                <span class="btn-text">Include Numbers</span>
-                            </label>
-                            <label class="checkbox-btn" for="symbols">
-                                <input type="checkbox" id="symbols">
-                                <span class="btn-text">Include Symbols</span>
-                            </label>
-                        </div>
-
-                        <!-- show strength -->
-                         <div>
-                            <p>Strength</p>
-                            <div id="indicator"></div>
-                         </div>
-
-
-                        <!-- Generate password button -->
-                        <div>
-                            <button id="gen-pass" aria-label="Generate Password">Generate Password</button>
-                        </div>
-
-                    </div>
-
-                </div>
+                  </div>
                     
             </div>
         </section>
