@@ -7,23 +7,24 @@
     <title>Random Password Generator</title>
     <link rel="stylesheet" href="style.css">
     
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/getPass_20241114_234352_0000-removebg-preview.png" type="image/x-icon">
 </head>
 
 
-<body class="bg-[#f5eaed]">
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 ">
-      <nav class="flex justify-between w-full h-full p-5">
-          <div id="logo" class="flex-shrink-1">
+<body class="bg-gradient-to-r from-[#ee9ca7] to-[#ffdde1] overflow-x-hidden ">
+    <header class=" top-0 left-0 w-full bg-white shadow-2xl z-50">
+      <nav class="flex justify-between items-center w-[100vw] max-h-[60px] p-5 overflow-y-hidden">
+          <div id="logo" class="flex-shrink-0">
               <!-- Site logo -->
-              <img src="/images/Screenshot 2024-11-10 153523.png" alt="logo for random password generator" class="w-[100px] h-auto">
+              <img src="/images/getPass_20241114_234352_0000-removebg-preview.png" alt="logo for random password generator" class="w-[30%] h-auto drop-shadow-xl">
           </div>
-          <div id="contact" class="flex-shrink-1">
+          <div id="contact" class="flex-shrink-0">
               <!-- Contact button -->
-              <a href="https://x.com/adarshtrip2306" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Contact Me</a>
+              <a href="https://github.com/iaadarsh23" class="button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition shadow-2xl drop-shadow-2xl">Contribute Your code</a>
           </div>
       </nav>
-    </header>
+  </header>
+
 
     
     
@@ -42,16 +43,16 @@
                 <!-- Left side images for password strength -->
                 
                 <div id="left-container" class=" flex flex-col items-center  ">
-                    <h1 class="text-6xl mt-[52%] animate-pulse" id="text">
+                    <h1 class="text-6xl mt-[45%] animate-pulse font-bold " id="text">
                         How Strong is your password?
                     </h1>
                     
-                    <div class="mt-[10%] ">
-                        <img src="/images/hut.png" id="weak" alt="Weak Password Indicator" class="hidden">
+                    <div class="mt-[8%] w-[45%] ">
+                        <img src="/images/hut (1).png" id="weak" alt="Weak Password Indicator" class="hidden shadow-2xl ">
                         <img src="/images/bungalow.png" id="medium" alt="Medium Password Indicator" class="hidden">
                         <img src="/images/castle.png" id="strong" alt="Strong Password Indicator" class="hidden">
                     </div>
-                    <h2 class="text-4xl m-12  hidden animate-pulse" id="text2" >This password’s basically a hut <br> in a storm—one sneeze and it’s gone.</h2>
+                    <h2 class="text-4xl m-12  hidden animate-pulse font-semibold" id="text2" >This password’s basically a hut <br> in a storm—one sneeze and it’s gone.</h2>
                     
                 </div>
             
@@ -65,7 +66,7 @@
                       <div class="animate-rotate absolute inset-0 h-full w-full rounded-2xl bg-[conic-gradient(#800080_20deg,transparent_120deg)]"></div>
 
 
-                      <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md h-auto relative z-50">
+                      <div class="bg-[#ffffff] rounded-3xl shadow-2xl p-8 w-full max-w-md h-auto relative z-50">
                         <h2 class="text-3xl font-bold text-center mb-6 text-gray-800 animate-pulse">Generate Your Password</h2>
 
                         <!-- Output Display with Animated Border -->
@@ -75,7 +76,7 @@
 
                           <!-- Inner Password Output Container -->
                           <div class="relative z-20 w-full">
-                            <input type="text" id="password-output" readonly placeholder="Your Password" class="w-full py-3 px-4 bg-gray-100 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-600 font-semibold font-sans text-xl" />
+                            <input type="text" id="password-output" readonly placeholder="Your Password" class="w-full py-3 px-4 bg-gray-100 rounded-lg text-blue-600  focus:outline-none focus:ring-red-600 font-semibold font-sans text-xl" />
                             
                             <!-- Copy Button -->
                             <button id="copy-btn" aria-label="Copy Password" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-500 focus:outline-none">
@@ -85,7 +86,7 @@
                             </button>
 
                             <!-- Copy Message -->
-                            <span id="copy-msg" class="absolute left-2 -bottom-6 text-sm text-green-500 opacity-0 transition-opacity">Copied!</span>
+                            <span id="copy-msg" class="absolute left-2 -bottom-6 text-sm text-green-500 hidden opacity-0 transition-opacity duration-500">Copied!</span>
                           </div>
                         </div>
                     
@@ -97,27 +98,27 @@
                           <h3 class="text-lg font-semibold text-gray-700">Password length</h3>
                           <p id="pswd-len" class="text-2xl font-bold text-purple-600">0</p>
                         </div>
-                        <input type="range" min="1" max="20" step="1" id="slider" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer bg-red-300 ">
+                        <input type="range" min="1" max="20" step="1" id="slider" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ">
                       </div>
                   
 
                       <!-- checkboxes -->
                       <div class="space-y-4 mb-6">
                         <label class="flex items-center space-x-3 cursor-pointer">
-                          <input type="checkbox" id="uppercase" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
-                          <span class="text-gray-700">Include Uppercase</span>
+                          <input type="checkbox" id="uppercase" class="form-checkbox h-5 w-5 text-red-600 rounded focus:ring-red-500">
+                          <span class="text-gray-700 text-[17px] font-semibold">Include Uppercase</span>
                         </label>
                         <label class="flex items-center space-x-3 cursor-pointer">
                           <input type="checkbox" id="lowercase" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
-                          <span class="text-gray-700">Include Lowercase</span>
+                          <span class="text-gray-700 text-[17px] font-semibold">Include Lowercase</span>
                         </label>
                         <label class="flex items-center space-x-3 cursor-pointer">
                           <input type="checkbox" id="numbers" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
-                          <span class="text-gray-700">Include Numbers</span>
+                          <span class="text-gray-700 text-[17px] font-semibold">Include Numbers</span>
                         </label>
                         <label class="flex items-center space-x-3 cursor-pointer">
                           <input type="checkbox" id="symbols" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500">
-                          <span class="text-gray-700">Include Symbols</span>
+                          <span class="text-gray-700 text-[17px] font-semibold">Include Symbols</span>
                         </label>
                       </div>
                   
@@ -130,8 +131,12 @@
                           
                         </div>
                       </div>
+                       <!-- Output Display with Animated Border -->
+                    <div class="relative mb-6 flex items-center overflow-hidden inset-0 rounded-lg p-[2.5px] border border-gray-300 shadow-2xl drop-shadow-2xl ">
+                      <!-- Animated Border Layer -->
+                      <div class="animate-rotate absolute inset-0 h-full w-full rounded-2xl bg-[conic-gradient(#10d0ff_20deg,transparent_120deg)]"></div>
                   
-                      <button id="gen-pass" aria-label="Generate Password" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                      <button id="gen-pass" aria-label="Generate Password" class="w-full bg-black hover:bg-cyan-400 hover:text-black text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                         Generate Password
                       </button>
                     </div>
@@ -140,6 +145,25 @@
             </div>
         </section>
     </main>
+
+
+    <footer class="flex justify-between bg-slate-100 items-center px-6 p-1 shadow-2xl border-black drop-shadow-2xl rounded-t-lg h-[50px]">
+      <div class="flex space-x-4">
+        <p class="font-semibold text-lg" >Contact me-</p>
+        <a href="https://x.com/adarshtrip2306" class="text-2xl  transition hover:transition-shadow  shadow-2xl drop-shadow-xl">
+          <i class="fa-brands fa-square-x-twitter"></i>
+        </a>
+        <a href="https://github.com/iaadarsh23" class="text-2xl  transition hover:transition-shadow shadow-2xl drop-shadow-xl">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+
+      <div>
+        <h1 class="font-bold text-xl text-blue-600 space-x-5">Build by Adarsh Tripathi</h1>
+      </div>
+    </footer>
 </body>
 <script src="app.js"></script>
+<script src="https://kit.fontawesome.com/e0159a9b34.js" crossorigin="anonymous"></script>
 </html>
+ 

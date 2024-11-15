@@ -108,24 +108,28 @@ function calStrength(){
 async function copyContent() {
     //this is an api used to copy something on clipboard, it will return promise
     //jo bhi outputtab pr show hoga vo sab dikhega
-    const response= await navigator.clipboard.writeText(outputTab.value);
-     
+    
+
     try {
-        if(!response.ok){
-            throw new Error('api couldnt get fetched');
-        }
-        copymsg.innerText='Copied';
-    } catch (e) {
-        copymsg.innerText='failed';
+        await navigator.clipboard.writeText(outputTab.value);
+        copymsg.classList.remove('hidden');
+        copymsg.classList.add('opacity-100');
+        copymsg.innerText='Copied!!'
+        console.log("copy succesfull")
+        
+    } catch (error) {
+        copymsg.innerText='failed to copy!'
         
     }
     // to make copy span visible
     //this makes any css made in copybtn visible for sometimes
-    copymsg.classList.add('active');
+    
+    
 
     //to make copt span hide
     setTimeout(()=>{
-        copymsg.classList.remove('active');
+        copymsg.classList.add('hidden');
+        copymsg.classList.add('hidden');
     },2000);
 
 }
@@ -139,7 +143,7 @@ async function copyContent() {
 
   //12.password copy
 
-  copyBtn.addEventListener(('click'),()=>{
+  copyBtn.addEventListener('click',()=>{
     if(outputTab.value){
         copyContent();
     }
@@ -214,7 +218,7 @@ allCheckbox.forEach((checkbox) => {
 
     // 5. Calculate the strength of the password
     calStrength();
-    document.getElementById('text').style.marginTop='8%';
+    document.getElementById('text').style.marginTop='2%';
     document.getElementById('text2').classList.remove('hidden');  
 });
 
